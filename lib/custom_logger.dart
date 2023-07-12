@@ -11,7 +11,7 @@ class CustomLogger {
   String? loggerName;
 
   factory CustomLogger(String loggerName) {
-    _customLogger.loggerName = loggerName;
+    _customLogger.loggerName ??= loggerName;
     return _customLogger;
   }
 
