@@ -8,16 +8,16 @@ class AnyModeFilter extends log.LogFilter {
 }
 
 class CustomLogger {
-  final String loggerName;
+  String? loggerName;
 
   factory CustomLogger(String loggerName) {
-    _customLogger = CustomLogger._internal(loggerName);
+    _customLogger.loggerName = loggerName;
     return _customLogger;
   }
 
-  CustomLogger._internal(this.loggerName);
+  CustomLogger._internal();
 
-  static late final CustomLogger _customLogger;
+  static final CustomLogger _customLogger = CustomLogger._internal();
 
   log.Logger internalLogger = log.Logger(
     printer: log.SimplePrinter(printTime: true),
