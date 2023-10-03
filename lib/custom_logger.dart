@@ -24,27 +24,33 @@ class CustomLogger {
     output: log.ConsoleOutput(),
   );
 
-  void v(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    internalLogger.v('$loggerName: $message', error, stackTrace);
+  void t(dynamic message, [dynamic error, StackTrace? stackTrace]) {
+    internalLogger.t('$loggerName: $message',
+        error: error, stackTrace: stackTrace);
   }
 
   void d(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    internalLogger.d('$loggerName: $message', error, stackTrace);
+    internalLogger.d('$loggerName: $message',
+        error: error, stackTrace: stackTrace);
   }
 
   void i(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    internalLogger.i('$loggerName: $message', error, stackTrace);
+    internalLogger.i('$loggerName: $message',
+        error: error, stackTrace: stackTrace);
   }
 
   void w(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    internalLogger.w('$loggerName: $message', error, stackTrace);
+    internalLogger.w('$loggerName: $message',
+        error: error, stackTrace: stackTrace);
   }
 
   void e(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    internalLogger.e('$loggerName: $message', error, stackTrace);
+    internalLogger.e('$loggerName: $message',
+        error: error, stackTrace: stackTrace);
   }
 
-  void wtf(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    internalLogger.wtf('$loggerName: $message', error, stackTrace);
+  void f(dynamic message, [dynamic error, StackTrace? stackTrace]) {
+    internalLogger.f('$loggerName: $message',
+        error: error, stackTrace: stackTrace);
   }
 }
