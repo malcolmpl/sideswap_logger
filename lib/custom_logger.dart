@@ -10,8 +10,12 @@ class AnyModeFilter extends log.LogFilter {
 class CustomLogger {
   String? loggerName;
 
-  factory CustomLogger(String loggerName) {
+  factory CustomLogger(String loggerName, log.LogOutput? output) {
     _customLogger.loggerName ??= loggerName;
+    _customLogger.internalLogger = log.Logger(
+      printer: log.SimplePrinter(printTime: true),
+      output: output ?? log.ConsoleOutput(),
+    );
     return _customLogger;
   }
 
@@ -19,10 +23,7 @@ class CustomLogger {
 
   static final CustomLogger _customLogger = CustomLogger._internal();
 
-  log.Logger internalLogger = log.Logger(
-    printer: log.SimplePrinter(printTime: true),
-    output: log.ConsoleOutput(),
-  );
+  late final log.Logger internalLogger;
 
   void t(dynamic message, [dynamic error, StackTrace? stackTrace]) {
     internalLogger.t('$loggerName: $message',
