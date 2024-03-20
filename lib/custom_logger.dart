@@ -10,7 +10,7 @@ class AnyModeFilter extends log.LogFilter {
 class CustomLogger {
   String? loggerName;
 
-  factory CustomLogger(String loggerName, log.LogOutput? output) {
+  factory CustomLogger(String loggerName, {log.LogOutput? output}) {
     _customLogger.loggerName ??= loggerName;
     _customLogger.internalLogger ??= log.Logger(
       printer: log.SimplePrinter(printTime: true),
